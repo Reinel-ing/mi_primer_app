@@ -34,6 +34,24 @@ void main() {
       expect(curso.estado, isA<Planificado>());
     });
 
+    test('un curso sin aula se lee con aula en null', () {
+      final json = ejemplo().toJson();
+      final curso = Curso.fromJson(json);
+
+      expect(curso.aula, isNull);
+      expect(curso.tieneAulaAsignada, isFalse);
+    });
+
+    test('un curso con aula asignada la conserva en la ida y vuelta', () {
+      final original = ejemplo().copyWith(aula: 'B-204');
+
+      final texto = jsonEncode(original.toJson());
+      final vuelta = Curso.fromJson(jsonDecode(texto) as Map<String, dynamic>);
+
+      expect(vuelta.aula, 'B-204');
+      expect(vuelta.tieneAulaAsignada, isTrue);
+    });
+
     test('un curso sin nombre dice QUÉ campo falló, no solo que falló', () {
       final json = ejemplo().toJson()..remove('nombre');
 

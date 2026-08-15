@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Curso {
 
- String get id; String get nombre; String get docente; Horario get horario; EstadoCurso get estado;
+ String get id; String get nombre; String get docente; Horario get horario; EstadoCurso get estado; String? get aula;
 /// Create a copy of Curso
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,16 +26,16 @@ $CursoCopyWith<Curso> get copyWith => _$CursoCopyWithImpl<Curso>(this as Curso, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Curso&&(identical(other.id, id) || other.id == id)&&(identical(other.nombre, nombre) || other.nombre == nombre)&&(identical(other.docente, docente) || other.docente == docente)&&(identical(other.horario, horario) || other.horario == horario)&&(identical(other.estado, estado) || other.estado == estado));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Curso&&(identical(other.id, id) || other.id == id)&&(identical(other.nombre, nombre) || other.nombre == nombre)&&(identical(other.docente, docente) || other.docente == docente)&&(identical(other.horario, horario) || other.horario == horario)&&(identical(other.estado, estado) || other.estado == estado)&&(identical(other.aula, aula) || other.aula == aula));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,nombre,docente,horario,estado);
+int get hashCode => Object.hash(runtimeType,id,nombre,docente,horario,estado,aula);
 
 @override
 String toString() {
-  return 'Curso(id: $id, nombre: $nombre, docente: $docente, horario: $horario, estado: $estado)';
+  return 'Curso(id: $id, nombre: $nombre, docente: $docente, horario: $horario, estado: $estado, aula: $aula)';
 }
 
 
@@ -46,7 +46,7 @@ abstract mixin class $CursoCopyWith<$Res>  {
   factory $CursoCopyWith(Curso value, $Res Function(Curso) _then) = _$CursoCopyWithImpl;
 @useResult
 $Res call({
- String id, String nombre, String docente, Horario horario, EstadoCurso estado
+ String id, String nombre, String docente, Horario horario, EstadoCurso estado, String? aula
 });
 
 
@@ -63,14 +63,15 @@ class _$CursoCopyWithImpl<$Res>
 
 /// Create a copy of Curso
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? nombre = null,Object? docente = null,Object? horario = null,Object? estado = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? nombre = null,Object? docente = null,Object? horario = null,Object? estado = null,Object? aula = freezed,}) {
   return _then(Curso(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,nombre: null == nombre ? _self.nombre : nombre // ignore: cast_nullable_to_non_nullable
 as String,docente: null == docente ? _self.docente : docente // ignore: cast_nullable_to_non_nullable
 as String,horario: null == horario ? _self.horario : horario // ignore: cast_nullable_to_non_nullable
 as Horario,estado: null == estado ? _self.estado : estado // ignore: cast_nullable_to_non_nullable
-as EstadoCurso,
+as EstadoCurso,aula: freezed == aula ? _self.aula : aula // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -155,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String nombre,  String docente,  Horario horario,  EstadoCurso estado)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String nombre,  String docente,  Horario horario,  EstadoCurso estado,  String? aula)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Curso() when $default != null:
-return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado);case _:
+return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado,_that.aula);case _:
   return orElse();
 
 }
@@ -176,10 +177,10 @@ return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado);
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String nombre,  String docente,  Horario horario,  EstadoCurso estado)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String nombre,  String docente,  Horario horario,  EstadoCurso estado,  String? aula)  $default,) {final _that = this;
 switch (_that) {
 case _Curso():
-return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado);case _:
+return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado,_that.aula);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +197,10 @@ return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado);
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String nombre,  String docente,  Horario horario,  EstadoCurso estado)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String nombre,  String docente,  Horario horario,  EstadoCurso estado,  String? aula)?  $default,) {final _that = this;
 switch (_that) {
 case _Curso() when $default != null:
-return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado);case _:
+return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado,_that.aula);case _:
   return null;
 
 }
@@ -211,7 +212,7 @@ return $default(_that.id,_that.nombre,_that.docente,_that.horario,_that.estado);
 
 
 class _Curso extends Curso {
-  const _Curso({required this.id, required this.nombre, required this.docente, required this.horario, required this.estado}): super._();
+  const _Curso({required this.id, required this.nombre, required this.docente, required this.horario, required this.estado, this.aula}): super._();
   
 
 @override final  String id;
@@ -219,6 +220,7 @@ class _Curso extends Curso {
 @override final  String docente;
 @override final  Horario horario;
 @override final  EstadoCurso estado;
+@override final  String? aula;
 
 /// Create a copy of Curso
 /// with the given fields replaced by the non-null parameter values.
@@ -230,16 +232,16 @@ _$CursoCopyWith<_Curso> get copyWith => __$CursoCopyWithImpl<_Curso>(this, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Curso&&(identical(other.id, id) || other.id == id)&&(identical(other.nombre, nombre) || other.nombre == nombre)&&(identical(other.docente, docente) || other.docente == docente)&&(identical(other.horario, horario) || other.horario == horario)&&(identical(other.estado, estado) || other.estado == estado));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Curso&&(identical(other.id, id) || other.id == id)&&(identical(other.nombre, nombre) || other.nombre == nombre)&&(identical(other.docente, docente) || other.docente == docente)&&(identical(other.horario, horario) || other.horario == horario)&&(identical(other.estado, estado) || other.estado == estado)&&(identical(other.aula, aula) || other.aula == aula));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,nombre,docente,horario,estado);
+int get hashCode => Object.hash(runtimeType,id,nombre,docente,horario,estado,aula);
 
 @override
 String toString() {
-  return 'Curso(id: $id, nombre: $nombre, docente: $docente, horario: $horario, estado: $estado)';
+  return 'Curso(id: $id, nombre: $nombre, docente: $docente, horario: $horario, estado: $estado, aula: $aula)';
 }
 
 
@@ -250,7 +252,7 @@ abstract mixin class _$CursoCopyWith<$Res> implements $CursoCopyWith<$Res> {
   factory _$CursoCopyWith(_Curso value, $Res Function(_Curso) _then) = __$CursoCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String nombre, String docente, Horario horario, EstadoCurso estado
+ String id, String nombre, String docente, Horario horario, EstadoCurso estado, String? aula
 });
 
 
@@ -267,14 +269,15 @@ class __$CursoCopyWithImpl<$Res>
 
 /// Create a copy of Curso
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? nombre = null,Object? docente = null,Object? horario = null,Object? estado = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? nombre = null,Object? docente = null,Object? horario = null,Object? estado = null,Object? aula = freezed,}) {
   return _then(_Curso(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,nombre: null == nombre ? _self.nombre : nombre // ignore: cast_nullable_to_non_nullable
 as String,docente: null == docente ? _self.docente : docente // ignore: cast_nullable_to_non_nullable
 as String,horario: null == horario ? _self.horario : horario // ignore: cast_nullable_to_non_nullable
 as Horario,estado: null == estado ? _self.estado : estado // ignore: cast_nullable_to_non_nullable
-as EstadoCurso,
+as EstadoCurso,aula: freezed == aula ? _self.aula : aula // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 

@@ -46,7 +46,11 @@ class _PantallaCursosState extends State<PantallaCursos> {
             final curso = cursos[i];
             return ListTile(
               title: Text(curso.nombre),
-              subtitle: Text('${curso.docente} · ${curso.estado.etiqueta}'),
+              subtitle: Text(
+                curso.tieneAulaAsignada
+                    ? '${curso.docente} · ${curso.estado.etiqueta} · Aula ${curso.aula}'
+                    : '${curso.docente} · ${curso.estado.etiqueta}',
+              ),
               trailing: curso.sePuedeInscribir
                   ? const Icon(Icons.how_to_reg_outlined)
                   : null,

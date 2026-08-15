@@ -13,6 +13,7 @@ abstract class Curso with _$Curso {
     required String docente,
     required Horario horario,
     required EstadoCurso estado,
+    String? aula,
   }) = _Curso;
 
   const Curso._();
@@ -23,6 +24,7 @@ abstract class Curso with _$Curso {
     docente: leerTexto(json, 'docente'),
     horario: Horario.fromJson(leerMapa(json, 'horario')),
     estado: EstadoCurso.fromJson(leerMapa(json, 'estado')),
+    aula: leerTextoOpcional(json, 'aula'),
   );
 
   Map<String, dynamic> toJson() => {
@@ -31,9 +33,12 @@ abstract class Curso with _$Curso {
     'docente': docente,
     'horario': horario.toJson(),
     'estado': estado.toJson(),
+    if (aula != null) 'aula': aula,
   };
 
   bool get sePuedeEditar => estado.sePuedeEditar;
+
+  bool get tieneAulaAsignada => aula != null;
 
   bool get sePuedeInscribir {
     final estadoActual = estado;
