@@ -1,0 +1,23 @@
+[
+  {
+    "id": "cur-001",
+    "nombre": "Calculo I",
+    "docente": "Carlos Perez",
+    "horario": { "dia": "Lunes", "horaInicio": "08:00", "horaFin": "10:00" },
+    "estado": { "tipo": "en_curso", "fechaInicio": "2026-08-01T00:00:00Z" }
+  },
+  {
+    "id": "cur-002",
+    "nombre": "Fisica General",
+    "docente": "Maria Gonzalez",
+    "horario": { "dia": "Martes", "horaInicio": "10:00", "horaFin": "12:00" },
+    "estado": { "tipo": "inscripciones_abiertas", "cupoDisponible": 15 }
+  },
+  {
+    "id": "cur-003",
+    "nombre": "Programacion Python",
+    "docente": "reinel alfaro",
+    "horario": { "dia": "Viernes", "horaInicio": "14:00", "horaFin": "18:00" },
+    "estado": { "tipo": "cancelado", "motivo": "No se alcanzo el cupo minimo de inscritos." }
+  }
+]
