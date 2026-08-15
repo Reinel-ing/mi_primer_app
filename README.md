@@ -29,25 +29,17 @@ Se conserva `curso_manual.dart.bak` con la versión de `Curso` escrita
 
 ## Arquitectura
 
-​```
-lib/
-├── main.dart                          # pantalla que lista los cursos
-├── core/
-│   ├── json.dart                      # lectores defensivos de JSON (CampoInvalido)
-│   └── comparaciones.dart             # comparación de listas por contenido
-└── features/cursos/
-    ├── domain/                        # entidad, valor, estados, interfaz. Sin Flutter.
-    │   ├── curso.dart
-    │   ├── curso.freezed.dart         # generado
-    │   ├── horario.dart
-    │   ├── estado_curso.dart
-    │   └── cursos_repository.dart     # interfaz
-    ├── data/
-    │   └── cursos_locales.dart        # implementación con rootBundle
-    └── presentation/                  # sin uso todavía
-
-assets/data/cursos.json                # 3 cursos de ejemplo
-​```
+- `lib/main.dart` — pantalla que lista los cursos.
+- `lib/core/json.dart` — lectores defensivos de JSON (`CampoInvalido`).
+- `lib/core/comparaciones.dart` — comparación de listas por contenido.
+- `lib/features/cursos/domain/` — entidad, valor, estados, interfaz. Sin Flutter.
+  - `curso.dart`, `curso.freezed.dart` (generado)
+  - `horario.dart`
+  - `estado_curso.dart`
+  - `cursos_repository.dart` (interfaz)
+- `lib/features/cursos/data/cursos_locales.dart` — implementación con `rootBundle`.
+- `lib/features/cursos/presentation/` — sin uso todavía.
+- `assets/data/cursos.json` — 3 cursos de ejemplo.
 
 ## Cómo correrlo
 
